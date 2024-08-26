@@ -1,10 +1,10 @@
 {'Owner': 'PhilGentile',
+ 'Available': true,
  'QBs': ['Kirk Cousins',  'Kyler Murray'],
  'RBs': ['Ezekiel Elliott',
          'Alvin Kamara',
          'Josh Jacobs',
          'Zack Moss',
-         'Rhamondre Stevenson',
          'Zamir White'],
  'TEs': [ 'Pat Freiermuth'],
  'WRs': ['Michael Wilson',
@@ -17,21 +17,20 @@
 
          
 {'Owner': 'jackzaff9',
- 'QBs': ['Tua Tagovailoa',  'Bryce Young'],
+ 'Available': false,
+ 'QBs': ['Bryce Young'],
  'RBs': ['Roschon Johnson',
          'Alexander Mattison',
-         "D'Andre Swift",
-         "Derrick Henry",
          'Elijah Mitchell',
          'Kenneth Gainwell',
          'Ty Chandler'],
- 'TEs': ['Jake Ferguson', 'Isaiah Likely'],
+ 'TEs': [ 'Isaiah Likely'],
  'WRs': ['DeAndre Hopkins',
-         'Calvin Ridley',
          'Elijah Moore',
-         'Jaxon Smith-Njigba']}
+         ]}
 
 {'Owner': 'jackdega',
+ 'Available': true,
  'QBs': ['Jared Goff', 'Justin Herbert'],
  'RBs': ['Aaron Jones',
          'Tony Pollard',
@@ -45,35 +44,31 @@
          'Nico Collins',
          'Christian Watson',
          'Parker Washington',
-         'Jordan Addison',
-         'Zay Flowers']}
+         ]}
 
 {'Owner': 'jcaiello',
+ 'Available': true,
  'QBs': ['Geno Smith', 'Justin Fields', 'Jaren Hall', 'Will Levis'],
  'RBs': ['Joe Mixon',
          'James Conner',
          'Gus Edwards',
          'Zach Charbonnet'],
- 'TEs': ['T.J. Hockenson', 'Trey McBride'],
+ 'TEs': ['T.J. Hockenson'],
  'WRs': ['Jonathan Mingo',
-         'Mike Evans',
          'Michael Thomas',
          'Curtis Samuel',
          'Jameson Williams',
          'Quentin Johnston']}
 
 {'Owner': 'Cmeyer33',
+ 'Available': false,
  'QBs': ['Trevor Lawrence', 'Brock Purdy', ],
  'RBs': ['Dalvin Cook',
-         'Devin Singletary',
-         'Najee Harris',
          'Kenneth Walker',
          ],
- 'TEs': ['Dalton Kincaid', 'Dallas Goedert', 'Dawson Knox', 'Brevin Jordan'],
+ 'TEs': ['Dawson Knox', 'Brevin Jordan'],
  'WRs': ['Odell Beckham',
          'Tyler Lockett',
-         'Courtland Sutton',
-         'Deebo Samuel',
          'Tee Higgins',
          'Kadarius Toney',
          'Jahan Dotson',
@@ -81,31 +76,29 @@
          'Josh Downs']}
 
 {'Owner': 'mcutler4444',
+ 'Available': false,
  'QBs': ['Deshaun Watson'],
  'RBs': ['Raheem Mostert',
          'Austin Ekeler',
          'Nick Chubb',
          'Jonathan Taylor',
          'Antonio Gibson',
-         'Rachaad White',
          'Kendre Miller'],
  'TEs': ['Evan Engram', 'George Kittle', 'Dalton Schultz'],
  'WRs': ['Jayden Reed',
          'Zay Jones',
-         'DJ Moore',
          'A.J. Brown',
          'Diontae Johnson',
          ]}
 
 {'Owner': 'JackCargiulo',
- 'QBs': ['Lamar Jackson',
-         'Baker Mayfield',
+ 'Available': true,
+ 'QBs': [         'Baker Mayfield',
          'Jordan Love',
          'Anthony Richardson'],
  'RBs': ["D'Onta Foreman",
          'J.K. Dobbins',
          'Jerome Ford',
-         'Brian Robinson',
          ],
  'TEs': ['Cole Kmet', 'Kyle Pitts', 'Michael Mayer'],
  'WRs': ['Adam Thielen',
@@ -117,22 +110,31 @@
          'Marvin Mims']}
 
 {'Owner': 'mabruzzo2',
+ 'Available': false,
  'QBs': ['Russell Wilson', 'Dak Prescott', 'Jake Browning', 'Joe Burrow'],
  'RBs': [
          'Javonte Williams',
          'Chuba Hubbard',
          'Tyler Allgeier',
          ],
- 'TEs': ['Travis Kelce', 'Luke Musgrave'],
+ 'TEs': ['Luke Musgrave'],
  'WRs': ['Rashee Rice',
          'Jerry Jeudy',
-         'Brandon Aiyuk',
          'Joshua Palmer',
          'Romeo Doubs',
          "Wan'Dale Robinson",
-         'George Pickens']}
+         ]}
 
-{'Owner': 'alexmal', 'QBs': [], 'RBs': [], 'TEs': [], 'WRs': []}
-
-{'Owner': 'ylf817', 'QBs': [], 'RBs': [], 'TEs': [], 'WRs': []}
-
+{'Owner': 'MyTeam',
+ 'Available': false,
+ 'QBs': [],
+ 'RBs': [
+     'Kyren Williams',
+     'Kenneth Walker',
+     'Rachaad White'
+         ],
+ 'TEs': ['Travis Kelce'],
+ 'WRs': [
+     'Puka Nacua',
+     'DK Metcalf']}
+    
