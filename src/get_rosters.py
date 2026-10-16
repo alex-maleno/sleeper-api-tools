@@ -1,35 +1,81 @@
+
 import requests
-import json
 
-# Function to get league rosters from Sleeper
+BASE_URL = "https://api.sleeper.app/v1"
+
+
+def sleeper_get(endpoint):
+    """Fetch JSON data from the Sleeper API."""
+    response = requests.get(f"{BASE_URL}/{endpoint}", timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+
 def get_league_rosters(league_id):
-    # Get the list of all users in the league
-    users_url = f"https://api.sleeper.app/v1/league/{league_id}/users"
-    users_response = requests.get(users_url)
-    users = users_response.json()
+    # Fetch league users, rosters, and NFL player metadata.
+    users = sleeper_get(f"league/{league_id}/users")
+    rosters = sleeper_get(f"league/{league_id}/rosters")
+    nfl_players = sleeper_get("players/nfl")
 
-    # Get rosters for each user
-    rosters_url = f"https://api.sleeper.app/v1/league/{league_id}/rosters"
-    rosters_response = requests.get(rosters_url)
-    rosters = rosters_response.json()
+    # Map user IDs to display names.
+    user_map = {
+        user["user_id"]: user.get("display_name", "Unknown")
+        for user in users
+    }
 
-    # Create a dictionary mapping user_id to username
-    user_map = {user['user_id']: user['display_name'] for user in users}
+    print(f"\nLeague ID: {league_id}")
+    print(f"Number of rosters: {len(rosters)}")
+    print("=" * 50)
 
-    # Process and print each roster
+    # Build and print each team's roster.
     for roster in rosters:
-        user_id = roster['owner_id']
-        username = user_map.get(user_id, "Unknown")
-        print(f"Roster for {username}:")
-        players = roster.get('players', None)
-        if players is None:
-            print("no team yet!")
+        owner_id = roster.get("owner_id")
+        username = user_map.get(owner_id, "Unassigned")
+        roster_id = roster.get("roster_id", "?")
+        player_ids = roster.get("players") or []
+
+        print(f"\nRoster {roster_id} - {username}")
+        print("-" * 40)
+
+        if not player_ids:
+            print("No players on this roster!")
             continue
-        for player_id in roster['players']:
-            print(f"- {player_id.get('full_name', 'unknown player')}")
-        print()
+
+        for player_id in player_ids:
+            player = nfl_players.get(player_id)
+
+            if player is None:
+                name = f"Unknown player (ID: {player_id})"
+                position = "?"
+                team = "?"
+            else:
+                name = player.get("full_name")
+                if not name:
+                    name = " ".join(
+                        filter(
+                            None,
+                            [
+                                player.get("first_name"),
+                                player.get("last_name"),
+                            ],
+                        )
+                    ) or f"Unknown player (ID: {player_id})"
+
+                position = player.get("position") or "?"
+                team = player.get("team") or "FA"
+
+            print(f"- {name} ({position}, {team})")
+
+    print()
+
 
 if __name__ == "__main__":
-    league_id = input("Enter your Sleeper league ID: ")
-    get_league_rosters(league_id)
+    league_id = 1336803927403819008#input("Enter your Sleeper league ID: ").strip()
+
+    try:
+        get_league_rosters(league_id)
+    except requests.RequestException as exc:
+        print(f"Sleeper API request failed: {exc}")
+    except (ValueError, KeyError, TypeError) as exc:
+        print(f"Error processing Sleeper API data: {exc}")
 
